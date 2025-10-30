@@ -24,7 +24,9 @@ notifications = []
 
 class NotificationRequest(BaseModel):
     message: str
-
+@app.get("/")
+async def home():
+    return {"success":"yes"}
 @app.post("/notify")
 async def notify(request: NotificationRequest):
     logger.info(f"Received notification request: {request.message}")
